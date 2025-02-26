@@ -194,7 +194,7 @@ if (frase) {
 } else {
   console.log("No ingresaste ninguna frase.");
 }
-*/
+
 // ========================
 // Ejercicio 13: Convertir temperaturas de Celsius a Fahrenheit (.map())
 // ========================
@@ -206,3 +206,74 @@ const temperaturasFahrenheit = temperaturasCelsius.map((Celsius) => {
 
 console.log("Temperaturas en Celsius:", temperaturasCelsius);
 console.log("Temperaturas en Fahrenheit:", temperaturasFahrenheit);
+
+
+// ========================
+// Ejercicio 14: Comprobar si un usuario tiene acceso (.includes())
+// ========================
+const usuariosPremium = [
+  "Angie21",
+  "Daniel26",
+  "PaolaVIP",
+  "XiomaraPro",
+  "JulianaTop",
+];
+
+let nombreUsuario = prompt("Por favor, ingresa tu nombre:");
+
+if (usuariosPremium.includes(nombreUsuario)) {
+  console.log("¡Bienvenido! Tienes acceso al contenido exclusivo.");
+} else {
+  console.log("Lo siento, no tienes acceso a este contenido.");
+}
+
+
+// ========================
+// Ejercicio 15: Invertir una lista de números (.reverse())
+// ========================
+const numeros = [2, 5, 8, 12, 15, 20];
+console.log(numeros);
+numeros.reverse();
+console.log(numeros);
+
+
+// ========================
+// Ejercicio 16: Capitalizar nombres (.map())
+// ========================
+const nombres = ["carlos", "luna", "julian", "danna"];
+
+const nuevosNombres = nombres.map((nombre) => {
+  return nombre.charAt(0).toUpperCase() + nombre.slice(1);
+});
+
+console.log(nuevosNombres);
+
+
+// ========================
+// Ejercicio 17: Eliminar el primer pedido de una lista (.shift() 
+// ========================
+const pedidos = ["arroz", "aceite", "carne"];
+console.log(pedidos);
+pedidos.shift();
+console.log(pedidos);
+
+
+// ========================
+// Ejercicio 18: Filtrar números pares (.filter())
+// ========================
+
+const numeros = [2, 5, 7, 6, 8, 1, 4, 16];
+
+let pares = numeros.filter((numero) => numero % 2 === 0);
+
+console.log(pares)
+*/
+
+// ========================
+// Ejercicio 19: Calcular el total de una compra (.reduce())
+// ========================
+const precios = [150, 299.99, 499, 1200, 750, 89.5];
+
+let total = precios.reduce((precio, num) => precio + num, 0);
+
+console.log("el precio total es: " + total);
