@@ -267,7 +267,7 @@ const numeros = [2, 5, 7, 6, 8, 1, 4, 16];
 let pares = numeros.filter((numero) => numero % 2 === 0);
 
 console.log(pares)
-*/
+
 
 // ========================
 // Ejercicio 19: Calcular el total de una compra (.reduce())
@@ -277,3 +277,45 @@ const precios = [150, 299.99, 499, 1200, 750, 89.5];
 let total = precios.reduce((precio, num) => precio + num, 0);
 
 console.log("el precio total es: " + total);
+
+
+
+// ========================
+// Ejercicio 20: Editar una lista de invitados (.splice())
+// ========================
+const invitados = ["Santiago", "Valeria", "Mateo", "Camila", "Andrés"];
+invitados.splice(2, 1, "Anna");
+console.log(invitados);
+
+invitados.splice(2, 0, "Anna"); // Agrega "Anna" sin eliminar a "Mateo"
+console.log(invitados);
+
+invitados.splice(4, 1); // Solo elimina "Andrés"
+console.log(invitados);
+
+
+// ========================
+// Ejercicio 21: Extraer una parte de un catálogo (.slice())
+// ========================
+const productos = [
+  "Laptop",
+  "Mouse",
+  "Teclado",
+  "Monitor",
+  "Impresora",
+  "Auriculares",
+];
+
+console.log(productos);
+
+let nuevosProductos = productos.slice(2, 5);
+
+console.log(nuevosProductos);
+*/
+// ========================
+// Ejercicio 22: Encontrar un número mayor a 50 (.find())
+// ========================
+const numeros = [12, 78, 45, 90, 33, 67, 25, 55, 8, 102];
+let numerMayor = numeros.find((numero) => numero >= 50);
+
+console.log(numerMayor);
