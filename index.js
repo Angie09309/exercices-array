@@ -311,7 +311,7 @@ console.log(productos);
 let nuevosProductos = productos.slice(2, 5);
 
 console.log(nuevosProductos);
-*/
+
 // ========================
 // Ejercicio 22: Encontrar un número mayor a 50 (.find())
 // ========================
@@ -319,3 +319,43 @@ const numeros = [12, 78, 45, 90, 33, 67, 25, 55, 8, 102];
 let numerMayor = numeros.find((numero) => numero >= 50);
 
 console.log(numerMayor);
+
+
+// ========================
+// Ejercicio 23: Verificar si hay estudiantes aprobados (.some())
+// ========================
+const calificaciones = [85, 92, 78, 65, 90, 100, 73, 88, 59, 47];
+let notas = calificaciones.some((nota) => nota >= 60);
+console.log(notas);
+
+
+// ========================
+// Ejercicio 24: Filtrar productos en oferta (.filter())
+// ========================
+const productos = [
+  { nombre: "Laptop", precio: 1200 },
+  { nombre: "Mouse", precio: 25 },
+  { nombre: "Teclado", precio: 45 },
+  { nombre: "Monitor", precio: 300 },
+  { nombre: "Auriculares", precio: 80 },
+];
+
+const valor = productos.filter((producto) => producto.precio < 50);
+console.log("Productos originales:", productos);
+console.log("Productos en oferta:", valor);
+
+
+// ========================
+// Ejercicio 23: Sumar calificaciones (.reduce())
+// ========================
+const calificaciones = [85, 92, 78, 65, 90, 100, 73, 88, 59, 47];
+let notas = calificaciones.reduce((acum, nota) => acum + nota, 0);
+console.log(notas);
+*/
+
+// ========================
+// Ejercicio 24: Verificar edades (.every())
+// ========================
+const edades = [20, 18, 10, 19, 18, 11, 39];
+const mayorEdad = edades.every((edad) => edad >= 18);
+console.log(mayorEdad);
