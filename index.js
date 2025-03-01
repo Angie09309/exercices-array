@@ -322,7 +322,8 @@ console.log(numerMayor);
 
 
 // ========================
-// Ejercicio 23: Verificar si hay estudiantes aprobados (.some())
+// Ejercicio 23: Verificar si hay estudiantes aprobados (.
+())
 // ========================
 const calificaciones = [85, 92, 78, 65, 90, 100, 73, 88, 59, 47];
 let notas = calificaciones.some((nota) => nota >= 60);
@@ -351,7 +352,7 @@ console.log("Productos en oferta:", valor);
 const calificaciones = [85, 92, 78, 65, 90, 100, 73, 88, 59, 47];
 let notas = calificaciones.reduce((acum, nota) => acum + nota, 0);
 console.log(notas);
-*/
+
 
 // ========================
 // Ejercicio 24: Verificar edades (.every())
@@ -359,3 +360,96 @@ console.log(notas);
 const edades = [20, 18, 10, 19, 18, 11, 39];
 const mayorEdad = edades.every((edad) => edad >= 18);
 console.log(mayorEdad);
+
+
+
+// ========================
+// Ejercicio 25: Rellenar un array con valores (.fill())
+// ========================
+const numeros = new Array(10).fill(0);
+console.log(numeros);
+
+numeros.fill(5, 3, 8);
+console.log(numeros);
+*/
+
+// ========================
+// Ejercicio 26: Sistema de Gestión de Tienda 🛒
+// ========================
+const productos = [
+  { id: 1, nombre: "MacBook Air", precio: 1200, categoria: "laptop", stock: 5 },
+  { id: 2, nombre: "iPhone 14", precio: 999, categoria: "teléfono", stock: 10 },
+  {
+    id: 3,
+    nombre: "Samsung Galaxy Tab",
+    precio: 450,
+    categoria: "tablet",
+    stock: 7,
+  },
+  { id: 4, nombre: "Dell XPS 13", precio: 1300, categoria: "laptop", stock: 4 },
+  {
+    id: 5,
+    nombre: "Google Pixel 7",
+    precio: 850,
+    categoria: "teléfono",
+    stock: 8,
+  },
+  { id: 6, nombre: "iPad Pro", precio: 1100, categoria: "tablet", stock: 6 },
+];
+
+console.log(`productos origianles:`, productos);
+
+productos.push({
+  id: 7,
+  nombre: "Reloj Pro",
+  precio: 1860,
+  categoria: "tecnologia",
+  stock: 7,
+});
+
+productos.forEach((producto) => console.log(producto));
+
+const nombreBuscado = "Dell XPS 13";
+
+const indice = productos.findIndex(
+  (producto) => producto.nombre === nombreBuscado
+);
+
+console.log(
+  `EL producto buscado ${nombreBuscado} esta en la posicion ${indice}`
+);
+
+productos.sort((a, b) => a.precio - b.precio);
+console.log(
+  "El precio de los productos de menor precio a mayor son:",
+  productos
+);
+
+let iva = productos.map((producto) => ({
+  ...producto,
+  precio: producto.precio * 1.21,
+}));
+
+console.log("El precio de los productos con iva:", iva);
+
+let preciosMayores = productos.filter((num) => num.precio > 1200);
+console.log("Productos con precio mayor a 1200:", preciosMayores);
+
+let calculo = productos.reduce(
+  (total, producto) => total + producto.precio * producto.stock,
+  0
+);
+console.log("El calculo total del inventario es:", calculo);
+
+let verificar = productos.some((producto) => producto.stock > 0);
+console.log(" Hay productos en stock", verificar);
+
+const disponibilidad = productos.every((producto) => producto.stock > 0);
+console.log("Todos los productos están disponibles", disponibilidad);
+
+productos.reverse();
+console.log("Invertir el orden de los productos", productos);
+
+productos.fill({ stock: 0 }, 0, 3);
+
+console.log(" se agotaron los primeros 3 productos.", productos);
