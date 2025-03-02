@@ -453,3 +453,14 @@ console.log("Invertir el orden de los productos", productos);
 productos.fill({ stock: 0 }, 0, 3);
 
 console.log(" se agotaron los primeros 3 productos.", productos);
+
+
+let nuevoProducto = {
+  id: productos.length + 1,
+  nombre: "Smartwatch",
+  precio: 300,
+  categoria: "tecnología",
+  stock: 10,
+};
+productos.push(nuevoProducto);
+console.log("Lista actualizada de productos:", productos);
