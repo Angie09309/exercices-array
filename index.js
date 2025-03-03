@@ -454,7 +454,6 @@ productos.fill({ stock: 0 }, 0, 3);
 
 console.log(" se agotaron los primeros 3 productos.", productos);
 
-
 let nuevoProducto = {
   id: productos.length + 1,
   nombre: "Smartwatch",
@@ -464,3 +463,10 @@ let nuevoProducto = {
 };
 productos.push(nuevoProducto);
 console.log("Lista actualizada de productos:", productos);
+
+const totalPrecio = productos.reduce(
+  (total, producto) => total + producto.precio,
+  0
+);
+const promedioPrecio = (totalPrecio / productos.length).toFixed(2);
+console.log("El precio promedio de los productos es:", promedioPrecio);
