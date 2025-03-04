@@ -528,3 +528,45 @@ console.log(nombreEstudiante);
 
 estudiantes.sort((a, b) => a.edad - b.edad);
 console.log("array de menor a mayor", estudiantes);
+
+const estudiantesConPromedio = estudiantes.map((estudiante) => {
+  let suma = estudiante.calificaciones.reduce(
+    (total, calificaciones) => total + calificaciones,
+    0
+  );
+
+  let promedio = suma / estudiante.calificaciones.length;
+
+  return {
+    ...estudiante,
+    promedio: promedio.toFixed(2),
+  };
+});
+
+console.log(estudiantesConPromedio);
+
+let promedioAprobado = estudiantesConPromedio.filter(
+  (num) => num.promedio > 85
+);
+console.log(promedioAprobado);
+
+let promedioGeneral =
+  estudiantesConPromedio.reduce(
+    (total, estudiante) => total + parseFloat(estudiante.promedio),
+    0
+  ) / estudiantesConPromedio.length;
+
+console.log(
+  `El promedio general de la clase es: ${promedioGeneral.toFixed(2)}`
+);
+
+let notas1 = estudiantes.some((estudiante) =>
+  estudiante.calificaciones.some((nota) => nota < 50)
+);
+console.log(notas1);
+
+
+let aprobado = estudiantesConPromedio.every(
+  (estudiante) => parseFloat(estudiante.promedio) > 80
+);
+console.log(aprobado);
