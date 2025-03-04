@@ -371,7 +371,7 @@ console.log(numeros);
 
 numeros.fill(5, 3, 8);
 console.log(numeros);
-*/
+
 
 // ========================
 // Ejercicio 26: Sistema de Gestión de Tienda 🛒
@@ -470,3 +470,61 @@ const totalPrecio = productos.reduce(
 );
 const promedioPrecio = (totalPrecio / productos.length).toFixed(2);
 console.log("El precio promedio de los productos es:", promedioPrecio);
+*/
+
+// ========================
+// Ejercicio 27: Sistema de Gestión de Estudiantes 🎓
+// ========================
+
+const estudiantes = [
+  {
+    id: 1,
+    nombre: "Ana Pérez",
+    edad: 20,
+    calificaciones: [85, 90, 78, 92],
+  },
+  {
+    id: 2,
+    nombre: "Carlos Gómez",
+    edad: 22,
+    calificaciones: [70, 88, 95, 80],
+  },
+  {
+    id: 3,
+    nombre: "María López",
+    edad: 19,
+    calificaciones: [100, 98, 97, 96],
+  },
+  {
+    id: 4,
+    nombre: "Pedro Sánchez",
+    edad: 21,
+    calificaciones: [60, 75, 85, 70],
+  },
+  {
+    id: 5,
+    nombre: "Lucía Ramírez",
+    edad: 23,
+    calificaciones: [90, 85, 88, 92],
+  },
+];
+
+console.log("origianles:", estudiantes);
+
+estudiantes.push({
+  id: 6,
+  nombre: "Jualiana Toro",
+  edad: 21,
+  calificaciones: [90, 67, 98, 89],
+});
+// console.log("Array con push:", estudiantes);
+
+estudiantes.forEach((estudiante) => console.log(estudiante));
+
+let nombreEstudiante = estudiantes.findIndex(
+  (estudiante) => estudiante.nombre === "Pedro Sánchez"
+);
+console.log(nombreEstudiante);
+
+estudiantes.sort((a, b) => a.edad - b.edad);
+console.log("array de menor a mayor", estudiantes);
