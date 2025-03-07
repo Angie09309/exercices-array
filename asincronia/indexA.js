@@ -68,7 +68,7 @@ async function hacerPedido() {
 }
 
 hacerPedido();
-*/
+
 
 function hacerPedidoPizza() {
   return new Promise((resolve, reject) => {
@@ -174,7 +174,7 @@ async function obtenerUsuario(id) {
 }
 
 obtenerUsuario(3);
-*/
+
 
 function falloElRepartidor(nombre, tiempo) {
   return new Promise((resolve, reject) => {
@@ -206,3 +206,36 @@ async function primerRepartidorExitoso() {
 }
 
 primerRepartidorExitoso();
+*/
+
+function carreraDePedidos(nombre, tiempo) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(`📦 Pedido de ${nombre} entregado en ${tiempo}ms`);
+    }, tiempo);
+  });
+}
+
+function falloElPedido(nombre, tiempo) {
+  return new Promise((_, reject) => {
+    setTimeout(() => {
+      reject(`❌ Fallo el pedido ${nombre}`);
+    }, tiempo);
+  });
+}
+
+async function CarreraDeEntregas() {
+  try {
+    let resultado = await Promise.race([
+      carreraDePedidos("Pizza", 5000),
+      falloElPedido("Hamburguesa", 7000),
+      carreraDePedidos("Tacos", 6000),
+    ]);
+
+    console.log("🚀 Entrega más rápida:", resultado);
+  } catch (error) {
+    console.error("⚠️ No se completó ningún pedido:", error);
+  }
+}
+
+CarreraDeEntregas();
