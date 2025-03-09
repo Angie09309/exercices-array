@@ -206,7 +206,7 @@ async function primerRepartidorExitoso() {
 }
 
 primerRepartidorExitoso();
-*/
+
 
 function carreraDePedidos(nombre, tiempo) {
   return new Promise((resolve) => {
@@ -239,3 +239,23 @@ async function CarreraDeEntregas() {
 }
 
 CarreraDeEntregas();
+*/
+
+async function buscarPost(id) {
+  try {
+    let respuesta = await fetch(
+      `https://jsonplaceholder.typicode.com/posts/${id}`
+    );
+
+    if (!respuesta.ok) {
+      throw new Error("❌ No se encontró el post");
+    }
+
+    let post = await respuesta.json();
+    console.log("✅ Post encontrado:", post);
+  } catch (error) {
+    console.error("⚠️ Error:", error.message);
+  }
+}
+
+buscarPost(1); // Probamos con el post ID 1
