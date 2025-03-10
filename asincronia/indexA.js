@@ -242,6 +242,11 @@ CarreraDeEntregas();
 */
 
 async function buscarPost(id) {
+  if (id < 1 || id > 100) {
+    console.error("⚠️ El ID debe estar entre 1 y 100.");
+    return;
+  }
+
   try {
     let respuesta = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${id}`
