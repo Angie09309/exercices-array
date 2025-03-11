@@ -257,10 +257,10 @@ async function buscarPost(id) {
     }
 
     let post = await respuesta.json();
-    console.log("✅ Post encontrado:", post);
+    console.log("✅ Post encontrado:", post.title);
   } catch (error) {
     console.error("⚠️ Error:", error.message);
   }
 }
 
-buscarPost(1); // Probamos con el post ID 1
+buscarPost(1);
