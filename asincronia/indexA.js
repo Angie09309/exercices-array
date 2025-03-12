@@ -239,7 +239,7 @@ async function CarreraDeEntregas() {
 }
 
 CarreraDeEntregas();
-*/
+
 
 async function buscarPost(id) {
   if (id < 1 || id > 100) {
@@ -264,3 +264,85 @@ async function buscarPost(id) {
 }
 
 buscarPost(1);
+
+
+async function buscarUsuario(id) {
+  try {
+    const respuesta = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${id}`
+    );
+
+    if (!respuesta.ok) {
+      throw new Error("❌ Error en la respuesta del servidor");
+    }
+
+    const usuario = await respuesta.json();
+
+    console.log("✅ Usuario encontrado:", usuario.name, "-", usuario.email);
+  } catch (error) {
+    console.error("⚠️ Error:", error.message);
+  }
+}
+
+buscarUsuario(10);
+
+
+async function actualizarUsuario(id, datosActualizados) {
+  try {
+    const respuesta = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datosActualizados),
+      }
+    );
+
+    if (!respuesta.ok) {
+      throw new Error("❌ Error al actualizar el usuario");
+    }
+    const usuarioActualizado = await respuesta.json();
+    console.log("✅ Usuario actualizado:", usuarioActualizado);
+  } catch (error) {
+    console.error("⚠️ Error:", error.message);
+  }
+}
+
+actualizarUsuario(3, {
+  email: "nuevoemail@example.com",
+  username: "nuevoUsername",
+});
+*/
+
+async function registrarUsuario(usuario) {
+  try {
+    const respuesta = await fetch(
+      `https://jsonplaceholder.typicode.com/users`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(usuario),
+      }
+    );
+
+    if (!respuesta.ok) {
+      throw new Error("❌ Error al crear el usuario");
+    }
+    const usuarioCreado = await respuesta.json();
+
+    console.log("✅ Usuario creado:", usuarioCreado);
+  } catch (error) {
+    console.error("⚠️ Error:", error.message);
+  }
+}
+
+// Llama a la función con el usuario de ejemplo
+registrarUsuario({
+  name: "Juan Torres",
+  email: "juan.torres@example.com",
+  username: "juant",
+});
