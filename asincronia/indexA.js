@@ -314,7 +314,7 @@ actualizarUsuario(3, {
   email: "nuevoemail@example.com",
   username: "nuevoUsername",
 });
-*/
+
 
 async function registrarUsuario(usuario) {
   try {
@@ -340,9 +340,61 @@ async function registrarUsuario(usuario) {
   }
 }
 
-// Llama a la función con el usuario de ejemplo
+
 registrarUsuario({
   name: "Juan Torres",
   email: "juan.torres@example.com",
   username: "juant",
+});
+*/
+
+//GET  - Leer datos
+async function obtenerUsuario(id) {
+  try {
+    const respuesta = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${id}`
+    );
+
+    if (!respuesta.ok) {
+      throw new Error("❌ Error al obtener el usuario");
+    }
+
+    const usuario = await respuesta.json();
+    console.log("📄 Usuario consultado:", usuario);
+  } catch (error) {
+    console.error("⚠️ Error:", error.message);
+  }
+}
+
+obtenerUsuario(1);
+
+//POST - Crear un nuevo recurso
+async function crearUsuario(usuario) {
+  try {
+    const respuesta = await fetch(
+      `https://jsonplaceholder.typicode.com/users`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(usuario),
+      }
+    );
+
+    if (!respuesta.ok) {
+      throw new Error("❌ Error al crear el usuario");
+    }
+
+    const nuevoUsuario = await respuesta.json();
+    console.log("✅ Usuario creado:", nuevoUsuario);
+  } catch (error) {
+    console.error("⚠️ Error:", error.message);
+  }
+}
+
+crearUsuario({
+  name: "Carlos López",
+  email: "carlos.lopez@example.com",
+  username: "carlitos",
 });
