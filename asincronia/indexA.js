@@ -398,3 +398,34 @@ crearUsuario({
   email: "carlos.lopez@example.com",
   username: "carlitos",
 });
+
+//PUT - Actualizar un recurso completo
+async function actualizarUsuario(id, datosActualizados) {
+  try {
+    const respuesta = await fetch(
+      `https://jsonplaceholder.typicode.com/users/${id}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(datosActualizados),
+      }
+    );
+
+    if (!respuesta.ok) {
+      throw new Error("❌ Error al actualizar el usuario");
+    }
+
+    const usuarioActualizado = await respuesta.json();
+    console.log("✏️ Usuario actualizado:", usuarioActualizado);
+  } catch (error) {
+    console.error("⚠️ Error:", error.message);
+  }
+}
+
+actualizarUsuario(1, {
+  name: "Carlos López Actualizado",
+  email: "carlos.actualizado@example.com",
+  username: "carlitos_updated",
+});
