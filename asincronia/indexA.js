@@ -400,7 +400,7 @@ crearUsuario({
 });
 
 //PUT - Actualizar un recurso completo
-async function actualizarUsuario(id, datosActualizados) {
+async function actualizarUsuario(id, datosActualizados = {}) {
   try {
     const respuesta = await fetch(
       `https://jsonplaceholder.typicode.com/users/${id}`,
@@ -421,9 +421,12 @@ async function actualizarUsuario(id, datosActualizados) {
     console.log("✏️ Usuario actualizado:", usuarioActualizado);
   } catch (error) {
     console.error("⚠️ Error:", error.message);
+  } finally {
+    console.log("✅ Proceso de actualización finalizado.");
   }
 }
 
+console.log("🔄 Iniciando actualización del usuario...");
 actualizarUsuario(1, {
   name: "Carlos López Actualizado",
   email: "carlos.actualizado@example.com",
